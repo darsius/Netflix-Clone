@@ -16,6 +16,7 @@
 		E4A5E9422B8E8720007A213D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A5E9412B8E8720007A213D /* SceneDelegate.swift */; };
 		E4A5E9442B8E8720007A213D /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A5E9432B8E8720007A213D /* MainTabViewController.swift */; };
 		E4A5E9492B8E8721007A213D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4A5E9482B8E8721007A213D /* Assets.xcassets */; };
+		E4E1B3CD2B8F854D00FE357A /* HeroHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E1B3CC2B8F854D00FE357A /* HeroHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E4A5E9432B8E8720007A213D /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		E4A5E9482B8E8721007A213D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4A5E94D2B8E8721007A213D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4E1B3CC2B8F854D00FE357A /* HeroHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,8 +48,8 @@
 		E478DAF22B8F73BC00BC24AB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E478DAF62B8F73CB00BC24AB /* DownloadsViewController.swift */,
 				E478DAF32B8F73CB00BC24AB /* HomeViewController.swift */,
+				E478DAF62B8F73CB00BC24AB /* DownloadsViewController.swift */,
 				E478DAF52B8F73CB00BC24AB /* SearchViewController.swift */,
 				E478DAF42B8F73CB00BC24AB /* UpcomingViewController.swift */,
 			);
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				E478DAFE2B8F743B00BC24AB /* CollectionViewTableViewCell.swift */,
+				E4E1B3CC2B8F854D00FE357A /* HeroHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -111,10 +114,10 @@
 			children = (
 				E478DAFC2B8F741300BC24AB /* Managers */,
 				E478DAFB2B8F73FE00BC24AB /* Resources */,
-				E478DAF22B8F73BC00BC24AB /* Controllers */,
 				E478DB002B8F747400BC24AB /* Models */,
-				E478DB012B8F749700BC24AB /* View Models */,
 				E478DAFD2B8F743100BC24AB /* Views */,
+				E478DB012B8F749700BC24AB /* View Models */,
+				E478DAF22B8F73BC00BC24AB /* Controllers */,
 				E4A5E93F2B8E8720007A213D /* AppDelegate.swift */,
 				E4A5E9412B8E8720007A213D /* SceneDelegate.swift */,
 				E4A5E9432B8E8720007A213D /* MainTabViewController.swift */,
@@ -197,6 +200,7 @@
 				E4A5E9442B8E8720007A213D /* MainTabViewController.swift in Sources */,
 				E478DAFF2B8F743B00BC24AB /* CollectionViewTableViewCell.swift in Sources */,
 				E478DAFA2B8F73CB00BC24AB /* DownloadsViewController.swift in Sources */,
+				E4E1B3CD2B8F854D00FE357A /* HeroHeaderView.swift in Sources */,
 				E4A5E9402B8E8720007A213D /* AppDelegate.swift in Sources */,
 				E4A5E9422B8E8720007A213D /* SceneDelegate.swift in Sources */,
 				E478DAF82B8F73CB00BC24AB /* UpcomingViewController.swift in Sources */,
