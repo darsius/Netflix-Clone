@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Netflix Clone
-//
-//  Created by Dar Dar on 27.02.2024.
-//
-
 import UIKit
 
 @main
