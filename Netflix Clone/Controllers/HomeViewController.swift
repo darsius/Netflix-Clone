@@ -23,6 +23,8 @@ class HomeViewController: UIViewController {
         
         let headerView = HeroHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTableView.tableHeaderView = headerView
+        
+        getTrendingMovies()
     }
     
     override func viewDidLayoutSubviews() {
@@ -34,7 +36,6 @@ class HomeViewController: UIViewController {
         var logoImage = UIImage(named: "netflixLogo")
         logoImage = logoImage?.withRenderingMode(.alwaysOriginal)
         logoImage = logoImage?.resizeTo(size: CGSize(width: 25, height: 30))
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: logoImage, style: .done, target: self, action: nil)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: logoImage, style: .done, target: self, action: nil)
         
@@ -44,6 +45,12 @@ class HomeViewController: UIViewController {
         ]
         
         navigationController?.navigationBar.tintColor = .white
+    }
+    
+    private func getTrendingMovies() {
+        APICaller.shared.getTrendingMovies { _ in
+            
+        }
     }
     
 }
