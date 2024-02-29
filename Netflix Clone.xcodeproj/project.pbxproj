@@ -18,6 +18,8 @@
 		E4A5E9492B8E8721007A213D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4A5E9482B8E8721007A213D /* Assets.xcassets */; };
 		E4DF23EF2B90F8BA00401B6A /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DF23EE2B90F8BA00401B6A /* APICaller.swift */; };
 		E4DF23F22B90FFA000401B6A /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DF23F12B90FFA000401B6A /* Movie.swift */; };
+		E4DF23F52B91040200401B6A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DF23F42B91040200401B6A /* Extensions.swift */; };
+		E4DF23F72B91070100401B6A /* Tv.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DF23F62B91070100401B6A /* Tv.swift */; };
 		E4E1B3CD2B8F854D00FE357A /* HeroHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E1B3CC2B8F854D00FE357A /* HeroHeaderView.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		E4A5E94D2B8E8721007A213D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4DF23EE2B90F8BA00401B6A /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		E4DF23F12B90FFA000401B6A /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		E4DF23F42B91040200401B6A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E4DF23F62B91070100401B6A /* Tv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tv.swift; sourceTree = "<group>"; };
 		E4E1B3CC2B8F854D00FE357A /* HeroHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +67,7 @@
 		E478DAFB2B8F73FE00BC24AB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E4DF23F42B91040200401B6A /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -88,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				E4DF23F12B90FFA000401B6A /* Movie.swift */,
+				E4DF23F62B91070100401B6A /* Tv.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -217,8 +223,10 @@
 				E478DAFA2B8F73CB00BC24AB /* DownloadsViewController.swift in Sources */,
 				E4E1B3CD2B8F854D00FE357A /* HeroHeaderView.swift in Sources */,
 				E4A5E9402B8E8720007A213D /* AppDelegate.swift in Sources */,
+				E4DF23F52B91040200401B6A /* Extensions.swift in Sources */,
 				E4A5E9422B8E8720007A213D /* SceneDelegate.swift in Sources */,
 				E478DAF82B8F73CB00BC24AB /* UpcomingViewController.swift in Sources */,
+				E4DF23F72B91070100401B6A /* Tv.swift in Sources */,
 				E4DF23F22B90FFA000401B6A /* Movie.swift in Sources */,
 				E478DAF72B8F73CB00BC24AB /* HomeViewController.swift in Sources */,
 			);

@@ -2,7 +2,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    private let sectionTitles = ["Trending Movies", "Popular", "Trending TV", "Upcoming Movies", "Top Rated"]
+    private let sectionTitles = ["Trending Movies" , "Trending TV", "Popular", "Upcoming Movies", "Top Rated"]
 
     private let homeFeedTableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
         let headerView = HeroHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTableView.tableHeaderView = headerView
         
-        getTrendingMovies()
+        fetchData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -47,15 +47,14 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
     }
     
-    private func getTrendingMovies() {
-        APICaller.shared.getTrendingMovies { results in
+    private func fetchData() {
+        APICaller.shared.getTrendingTvs { results in
             switch results {
             case .success(let movies):
                 print(movies)
             case .failure(let error):
                 print(error)
             }
-            
         }
     }
     
@@ -95,6 +94,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
         header.textLabel?.textColor = .white
+        header.textLabel?.text = header.textLabel?.text?.lowercased().capitalizeFirstLetter()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
