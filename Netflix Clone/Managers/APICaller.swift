@@ -151,7 +151,33 @@ class APICaller {
         task.resume()
     }
     
+    func search(with query: String, completion: @escaping (Result<[Title], Error>) -> Void) {
+        
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+            print("error at formatting the query")
+            return
+        }
+        
+        guard let url = URL(string: "\(Constants.baseURL)/3/search/movie?query=\(query)&api_key=\(Constants.API_KEY)") else {
+            print("invalid url for the searching movies")
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) {data, _, error in
+            guard let data = data, error == nil else {
+                print("couldn't fetch the data for the top rated movies")
+                return
+            }
+            
+            do {
+                let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
+                completion(.success(results.results))
+            } catch {
+                completion(.failure(APIError.failedToGetData))
+            }
+        }
+        task.resume()
+    }
+    
 }
 
-
-// https://api.themoviedb.org/3/discover/movie?api_key=%3C%3Capi_key%3E%3E&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc
