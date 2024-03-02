@@ -18,6 +18,11 @@ class MainTabViewController: UITabBarController {
         searchVC.tabBarItem.image = UIImage(systemName: "magnifyingglass")
         downloadsVC.tabBarItem.image = UIImage(systemName: "arrow.down.to.line")
         
+        homeVC.title = "Home"
+        upcomingVC.title = "Coming soon"
+        searchVC.title = "Top Searches"
+        downloadsVC.title = "Downloads"
+        
         view.tintColor = .label
         
         setViewControllers([homeVC, upcomingVC, searchVC, downloadsVC], animated: true)
