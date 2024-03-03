@@ -10,7 +10,6 @@ class TitlePreviewViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 22, weight: .bold)
-        label.text = "harry potter"
         return label
     }()
     
@@ -89,7 +88,7 @@ class TitlePreviewViewController: UIViewController {
         titleLabel.text = model.title
         overviewLabel.text = model.titleOverview
         
-        guard let url = URL(string: "https://www.youtube.com/emb ed/\(model.youtubeView.id.videoId)") else {
+        guard let url = URL(string: "https://www.youtube.com/embed/\(model.youtubeView.id.videoId)") else {
             print("youtube url error")
             return
         }

@@ -1,11 +1,5 @@
-//
-//  HeroHeaderView.swift
-//  Netflix Clone
-//
-//  Created by Dar Dar on 28.02.2024.
-//
-
 import UIKit
+
 
 class HeroHeaderView: UIView {
     
