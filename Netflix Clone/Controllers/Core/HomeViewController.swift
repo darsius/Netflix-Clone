@@ -34,6 +34,7 @@ class HomeViewController: UIViewController {
         let headerView = HeroHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTableView.tableHeaderView = headerView
         
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -54,6 +55,7 @@ class HomeViewController: UIViewController {
         ]
         
         navigationController?.navigationBar.tintColor = .white
+        homeFeedTableView.setContentOffset(CGPoint.zero, animated: true)
     }
     
     
@@ -76,6 +78,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
+        cell.delegate = self
         
         switch indexPath.section {
         case TableViewSections.TrendingMovies.rawValue:
@@ -174,5 +177,16 @@ extension UIImage {
         }
         
         return image.withRenderingMode(self.renderingMode)
+    }
+}
+
+
+extension HomeViewController: CollectionViewTableViewCellDelegate {
+    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            let titlePreviewVC = TitlePreviewViewController()
+            titlePreviewVC.configure(with: viewModel)
+            self?.navigationController?.pushViewController(titlePreviewVC, animated: true)
+        }
     }
 }
