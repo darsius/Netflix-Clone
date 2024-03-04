@@ -48,6 +48,18 @@ class CollectionViewTableViewCell: UITableViewCell {
             self?.collectionView.reloadData()
         }
     }
+    
+    private func downloadTitleAt(indexPath: IndexPath) {
+        DataPersistenceManager.shared.downloadTitleWith(model: titles[indexPath.row]) {result in
+            switch result {
+            case .success():
+                print("downloaded to data base")
+            case .failure(let error):
+                print(error)
+            }
+            
+        }
+    }
 }
 
 
@@ -73,21 +85,37 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         collectionView.deselectItem(at: indexPath, animated: true)
         
         let title = titles[indexPath.row]
-        guard let titleName = title.original_name ?? title.original_title else {
+        guard let titleName = title.original_title ?? title.original_name else {
             return
         }
-        
         APICaller.shared.getMovie(with: titleName + " trailer") { [weak self] result in
             switch result {
             case .success(let videoElement):
                 let title = self?.titles[indexPath.row]
+                
                 guard let titleOverview = title?.overview else {return}
                 let viewModel = TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverview: titleOverview)
-                guard let self = self else {return}
-                self.delegate?.collectionViewTableViewCellDidTapCell(self, viewModel: viewModel)
+                
+                guard let strongSelf = self else {
+                    return}
+                self?.delegate?.collectionViewTableViewCellDidTapCell(strongSelf, viewModel: viewModel)
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+
+        let config = UIContextMenuConfiguration(
+            identifier: nil,
+            previewProvider: nil) {[weak self] _ in
+                let downloadAction = UIAction(title: "Download", subtitle: nil, image: nil, identifier: nil, discoverabilityTitle: nil, state: .off) { _ in
+                    self?.downloadTitleAt(indexPath: indexPath)
+                }
+                return UIMenu(title: "", image: nil, identifier: nil, options: .displayInline, children: [downloadAction])
+            }
+
+        return config
     }
 }
