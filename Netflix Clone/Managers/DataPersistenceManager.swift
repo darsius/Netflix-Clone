@@ -2,6 +2,12 @@ import Foundation
 import UIKit
 import CoreData
 
+enum DataBaseError: Error {
+    case failedToSaveData
+    case failedToFetchData
+    case failedToDeleteData
+}
+
 
 class DataPersistenceManager {
     
@@ -31,10 +37,44 @@ class DataPersistenceManager {
             try context.save()
             completion(.success(()))
         } catch {
-            completion(.failure(error))
+            completion(.failure(DataBaseError.failedToSaveData))
         }
-        
     }
     
+    func fetchTitlesFromDataBase(completion: @escaping (Result<[TitleItem], Error>) -> Void) {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request: NSFetchRequest<TitleItem>
+        request = TitleItem.fetchRequest()
+        
+        do {
+            let titlesFromDataBase = try context.fetch(request)
+            completion(.success(titlesFromDataBase))
+        } catch {
+            completion(.failure(DataBaseError.failedToFetchData))
+        }
+    }
+    
+    func deleteTitleWith(model: TitleItem, completion: @escaping (Result<Void, Error>) -> Void) {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let context = appDelegate.persistentContainer.viewContext
+        context.delete(model)
+        
+        do {
+            try context.save()
+            completion(.success(()))
+        } catch {
+            completion(.failure(DataBaseError.failedToDeleteData))
+        }
+    }
     
 }
